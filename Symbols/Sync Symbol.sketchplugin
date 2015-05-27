@@ -1,6 +1,9 @@
 // Syncs all instances of a symbol tagged with ": symbol-name" (cmd e)
 // v0.3
 
+var selectedLayers = context.selection;
+var selectedCount = selectedLayers.count();
+
 var tagPattern = /:\s*(.*)$/;
 
 function alert(msg, title) {
@@ -166,13 +169,15 @@ function copyLayerPosition(src, dst) {
 
 (function main() {
 
-  // HACK: on a freshly started Sketch instance, 'selection' is null until you select an object
-  if(!(selection && [selection length])) {
+  // If there's nothing selected.
+  if (selectedCount == 0) {
     alert("Make sure you've selected a symbol, or a layer that belongs to one before you try to sync.");
     return;
   }
+ 
+  var layerGroup = getNearestTaggedLayerGroup(selectedLayers[0]);
 
-  var layerGroup = getNearestTaggedLayerGroup(selection[0]);
+  // If the LayerGroup is not a symbol or part of a symbol
   if(!layerGroup) {
     alert("Make sure you've selected a symbol, or a layer that belongs to one before you try to sync.");
     return;
