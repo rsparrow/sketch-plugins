@@ -29,7 +29,7 @@ function toJSArray(arr) {
   var len = arr.length(), res = [];
 
   while(len--) {
-    res.push(arr[len]);
+    res.push(arr.array()[len]);
   }
   return res;
 }
