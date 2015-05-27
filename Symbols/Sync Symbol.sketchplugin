@@ -223,15 +223,16 @@ function copyLayerPosition(src, dst) {
         var protected = protectedLayers.pop();
         copyLayerStyle(layer, protected);
         copyLayerPosition(layer, protected);
-        group.addLayer(protected);
+        group.addLayers([protected]);
 
       } else {
-        var copy = [layer duplicate];
-        layerGroup.removeLayer(copy);
-        group.addLayer(copy);
+        var layerCopy = [layer duplicate];
+        layerGroup.removeLayer(layerCopy);
+        group.addLayers([layerCopy]);
       }
     }
 
-    group.resizeRoot();
+    group.resizeRoot(true);
+    
   });
 })();
