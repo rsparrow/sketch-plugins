@@ -51,8 +51,6 @@ function isGroup(layer) {
 
 function getLayerGroupsByTag(parent, tag) {
   var all = [parent layers];
-  // sometimes layers returns an instance of JSCocoaController, I'm not sure why
-  if([all class] === JSCocoaController) return [];
 
   var groups = filterNSArray(all, isGroup),
       tagged = [],
