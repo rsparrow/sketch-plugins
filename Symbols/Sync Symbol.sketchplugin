@@ -37,8 +37,8 @@ function toJSArray(arr) {
 function filterNSArray(arr, test) {
   var len = arr.length(), res = [];
   while(len--) {
-    if(test(arr[len])) {
-      res.push(arr[len]);
+    if(test(arr.array()[len])) {
+      res.push(arr.array()[len]);
     }
   }
   return res;
