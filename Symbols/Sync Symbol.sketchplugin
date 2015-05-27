@@ -131,10 +131,11 @@ function copyLayerPosition(src, dst) {
 
   if([src class] === MSTextLayer) {
     var textBehaviour = [src textBehaviour], // 0 = flexible, 1 = fixed
-        alignment = [src textAlignment]; // 0 = left, 1 = right, 2 = center, 3 = justified
+        alignment = [src textAlignment]; // 0 = left, 1 = right, 2 = center, 3 = justified, 4=?
 
     if(textBehaviour === 0) { // flexible text behaviour
       switch(alignment) {
+        case 4: // Hack because sometimes when UI shows left it comes up as '4' and I don't know what 4 means
         case 0: // left
           [dstFrame setX:[srcFrame x]];
           [dstFrame setY:[srcFrame y]];
