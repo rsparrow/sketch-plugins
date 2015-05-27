@@ -5,6 +5,7 @@ var selectedLayers = context.selection;
 var selectedCount = selectedLayers.count();
 
 var tagPattern = /:\s*(.*)$/;
+var doc = context.document;
 
 function alert(msg, title) {
   title = title || "Whoops";
