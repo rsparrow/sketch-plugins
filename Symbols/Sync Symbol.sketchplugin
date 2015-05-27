@@ -1,5 +1,5 @@
 // Syncs all instances of a symbol tagged with ": symbol-name" (cmd e)
-// v0.2
+// v0.3
 
 var tagPattern = /:\s*(.*)$/;
 
