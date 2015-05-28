@@ -89,12 +89,15 @@ function copyLayerStyle(src, dst) {
       dstStyle = [dst style],
       srcContext = [srcStyle contextSettings],
       dstContext = [dstStyle contextSettings],
+      srcBlur = [srcStyle blur],
+      dstBlur = [dstStyle blur],
       collections = ['borders', 'fills', 'shadows', 'innerShadows'],
       props = { 'borders': ['position', 'thickness', 'fillType', 'gradient', 'isEnabled'],
                 'fills': ['fillType', 'gradient', 'image', 'noiseIntensity', 'isEnabled', 'color'],
                 'shadows': ['offsetX', 'offsetY', 'blurRadius', 'spread', 'color', 'isEnabled'],
                 'innerShadows': ['offsetX', 'offsetY', 'blurRadius', 'spread', 'color', 'isEnabled'],
-                'textLayer': ['fontSize', 'fontPostscriptName', 'textColor', 'textAlignment', 'characterSpacing', 'lineSpacing']
+                'textLayer': ['fontSize', 'fontPostscriptName', 'textColor', 'textAlignment', 'characterSpacing', 'lineSpacing'],
+                'blur' : ['radius','motionAngle','isEnabled','type','center']
               };
 
   // copy layer styles
@@ -119,6 +122,9 @@ function copyLayerStyle(src, dst) {
   // copy context settings
   [dstContext setOpacity:[srcContext opacity]];
   [dstContext setBlendMode:[srcContext blendMode]];
+
+  // copy blur settings
+  syncProperties(srcBlur, dstBlur, props['blur']);
 
   // text layer-specific properties (font size, line spacing, etc.)
   if([dst class] === MSTextLayer) {
