@@ -91,7 +91,7 @@ function copyLayerStyle(src, dst) {
       dstContext = [dstStyle contextSettings],
       collections = ['borders', 'fills', 'shadows', 'innerShadows'],
       props = { 'borders': ['position', 'thickness', 'fillType', 'gradient', 'isEnabled'],
-                'fills': ['fillType', 'gradient', 'patternImage', 'noiseIntensity', 'isEnabled', 'color'],
+                'fills': ['fillType', 'gradient', 'image', 'noiseIntensity', 'isEnabled', 'color'],
                 'shadows': ['offsetX', 'offsetY', 'blurRadius', 'spread', 'color', 'isEnabled'],
                 'innerShadows': ['offsetX', 'offsetY', 'blurRadius', 'spread', 'color', 'isEnabled'],
                 'textLayer': ['fontSize', 'fontPostscriptName', 'textColor', 'textAlignment', 'characterSpacing', 'lineSpacing']
