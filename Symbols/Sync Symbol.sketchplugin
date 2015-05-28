@@ -103,14 +103,14 @@ function copyLayerStyle(src, dst) {
         dstCol = dstStyle[collection](),
         propSet = props[collection];
 
-    for(var i=dstCol.length()-1; i >= 0; i--) {
+    for(var i=dstCol.array().length()-1; i >= 0; i--) {
       dstCol.removeStylePartAtIndex(i);
     }
 
-    for(var i=0, l=srcCol.length(); i < l; i++) {
-      var style = srcCol[i];
+    for(var i=0, l=srcCol.array().length(); i < l; i++) {
+      var style = srcCol.array()[i];
       dstCol.addNewStylePart();
-      var newStyle = dstCol[dstCol.length() - 1];
+      var newStyle = dstCol.array()[dstCol.length() - 1];
 
       syncProperties(style, newStyle, propSet);
     }
